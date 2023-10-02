@@ -1,0 +1,41 @@
+---
+const { image, eth, likes, views, date, user, index  } = Astro.props
+
+const colors = [
+     "linear-gradient(135deg, #00aaff, #0044cc)", 
+     "linear-gradient(135deg, #ff3333, #cc0000)", 
+     "linear-gradient(135deg, #555555, #333333)", 
+     "linear-gradient(135deg, #00ff99, #00cc66)"
+];
+
+---
+
+<li 
+     class="z-[10] relative w-[100%] md:w-[25%] bg-[rgb(27,25,34)] p-2 rounded-[0.8rem] flex flex-col items-center gap-2"
+>
+     <a class="flex flex-col items-center w-[100%] h-[100%] gap-[0.7rem]">
+          <figure 
+          class="w-[95%] h-[40vh] rounded-[0.5rem]"
+          style={`background: ${colors[index]}`}
+          >
+               <img class={`w-[100%] h-[100%] object-contain ${index === colors.length - 1 ? 'object-cover' : ''}`} src={image}/>
+          </figure>
+          <article class="w-[100%] text-[var(--text-card)] flex flex-col items-center gap-3">
+               <section class="w-full flex flex-row items-center justify-between pr-[1rem] pl-[1rem]">
+                    <p>{date}</p>
+                    <p>{views}</p>
+               </section>
+               <span class="h-[1px] w-full bg-gradient-to-r from-transparent via-slate-400 to-transparent"></span>
+               <section class="flex flex-row items-center justify-between pr-[1rem] pl-[1rem] w-[100%]">
+                    <div class="flex flex-col items-start">
+                         <p class="text-white text-sm">{user}</p>
+                         <p class="text-[var(--bg-contrast)]">{eth} ETH</p>
+                    </div>
+                    <button class="bg-[var(--bg-contrast)] pr-4 pl-4 pt-2 pb-2 rounded-lg text-black"><p>Buy now</p></button>
+               </section>
+               <span class="absolute top-0 right-0 bg-white p-1 pl-[1rem] pr-[1rem] rounded-[1rem] text-black">
+                    {likes}
+               </span>
+          </article>
+     </a>
+</li>

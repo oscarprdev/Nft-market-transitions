@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NftList from '../components/Nft-list.astro';
+
+---
+
+<Layout>
+	<main class="relative bg-glow flex flex-col md:h-[100vh] items-center text-center gap-3 p-5 m-auto">
+		<h1 class="text-white text-[2rem] md:text-[4rem]">NFT Market</h1>
+		<NftList/>
+		<span class='z-[-10] noise absolute top-0 w-[100%] h-[100%] md:h-[100vh] content-none'/>
+	</main>
+</Layout>
