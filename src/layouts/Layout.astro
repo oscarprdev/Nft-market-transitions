@@ -11,6 +11,11 @@
 		<meta name="generator" content={Astro.generator} />
 		<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 		<title>NFT Market</title>
+		<script defer>
+			import {startViewTransition} from '../utils/index.js'
+
+			startViewTransition()
+		</script>
 	</head>
 	<body>
 		<slot />
