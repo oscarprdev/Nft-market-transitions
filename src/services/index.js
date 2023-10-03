@@ -1,10 +1,10 @@
 import { API_URL } from '../constants';
 
 const arrayImages = [
-	'../assets/images/bored-ape-1.png',
-	'../assets/images/bored-ape-2.png',
-	'../assets/images/bored-ape-3.png',
-	'../assets/images/bored-ape-4.avif',
+	'../../public/assets/images/bored-ape-1.png',
+	'../../public/assets/images/bored-ape-2.png',
+	'../../public/assets/images/bored-ape-3.png',
+	'../../public/assets/images/bored-ape-4.avif',
 ];
 
 const defaultNft = {
