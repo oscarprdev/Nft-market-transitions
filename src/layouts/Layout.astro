@@ -11,11 +11,6 @@
 		<meta name="generator" content={Astro.generator} />
 		<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 		<title>NFT Market</title>
-		<script defer>
-			import {startViewTransition} from '../utils/index.js'
-
-			startViewTransition()
-		</script>
 	</head>
 	<body>
 		<slot />
@@ -37,7 +32,7 @@
 		.noise {
 			background-position: 50%;
 			background-repeat: repeat;
-			background-image: url(/images/noise.png);
+			background-image: url(../assets/images/noise.png);
 			background-size: 140px 100px;
 		}
 
@@ -127,3 +122,8 @@
 		font-family: 'Kaushan Script';
 	}
 </style>
+<script>
+	import {startViewTransition} from '../utils/index.js'
+
+	startViewTransition()
+</script>
