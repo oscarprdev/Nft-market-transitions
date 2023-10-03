@@ -1,0 +1,68 @@
+---
+import { colors } from "../utils";
+import { getNftbyId } from '../services/index'
+import { Icon } from 'astro-icon'
+import NftItem from "./Nft-item.astro";
+
+const {id} = Astro.params
+
+const {image, name, views, likes, user, date, eth} = await getNftbyId(id)
+---
+
+<section 
+    class="flex flex-col items-center relative w-[90vw] h-full rounded-t-[1rem] md:w-[30vw] p-2 border-detail-grad" 
+    style={`background: ${colors[Number(id) - 1]}; view-transition-name: bg-${id}`}>
+    <a class="cursor-pointer z-[15] absolute left-5" href="/">
+        <Icon class="w-[25px] text-white" name="ep:back" />
+    </a>
+    <div class="flex flex-col items-center gap-3 mt-5 text-3xl text-white">
+        <p style={`view-transition-name: nft-name-${id}`}>{name}</p>
+        <span class="block h-[2px] w-full bg-gradient-to-r from-transparent via-slate-100 to-transparent"></span>
+        <div class="flex justify-between gap-6 w-ful text-base md:text-lg">
+            <NftItem 
+                value={views} 
+                transitionName={`nft-views-${id}`} 
+                icon="mdi:eye-outline" 
+                size="w-[15px]" 
+                color="text-white"
+            />
+            <NftItem 
+                value={likes} 
+                transitionName={`nft-likes-${id}`} 
+                icon="mdi:heart" 
+                size="w-[15px]" 
+                color="text-white"
+            />
+            <NftItem 
+                value={date} 
+                transitionName={`nft-date-${id}`} 
+                icon="tabler:clock" 
+                size="w-[15px]" 
+                color="text-white"
+            />
+        </div>
+        <button 
+        style={`view-transition-name: button-${id}`} 
+        class="border-black border-[1px] bg-[var(--bg-contrast)] pr-[2rem] pl-[2rem] p-2 rounded-[0.8rem] text-black"
+        >
+            <p>Buy now</p>
+        </button>
+        <span class="p-2 pl-4 pr-4 rounded-[0.8rem] border-[1px] border-white bg-white border-grad">
+            <p 
+            class="text-2xl text-black"
+            style={`view-transition-name: nft-user-${id}`}>{user}</p>  
+        </span>
+        <div class="eth-value w-[90vw] md:w-[20vw]">
+            <span 
+            class="flex items-center mt-2 p-2 text-[var(--bg-contrast)]"
+            style={`view-transition-name: nft-value-${id}`}>
+                <Icon class="w-[25px] text-[var(--bg-contrast)]" name="mdi:ethereum" />
+                <p>{eth} ETH</p>
+            </span>
+        </div>
+    </div>
+    <figure class="absolute bottom-0 w-[90vw] md:w-[30vw] h-[40vh] flex flex-col items-center">
+        <img src={image} alt={name} class="h-[40vh]" style={`view-transition-name: image-nft-${id}`}/>
+    </figure>
+</section>
+		

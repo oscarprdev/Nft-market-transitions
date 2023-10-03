@@ -4,10 +4,17 @@ import NftList from '../components/Nft-list.astro';
 
 ---
 
-<Layout>
+<Layout class="h-full">
 	<main class="relative bg-glow flex flex-col md:h-[100vh] items-center text-center gap-3 p-5 m-auto">
-		<h1 class="text-white text-[2rem] md:text-[4rem]">NFT Market</h1>
+		<h1 class="text-white text-[2rem] md:text-[4rem]" style="view-transition-name: title">NFT Market</h1>
 		<NftList/>
+		<p class="text-white" style="view-transition-name: oscar">Developed by <a class="text-[var(--bg-contrast)]" target="_blank" href="https://github.com/oscarprdev/Nft-marketplace">Oscar Perez</a></p>
 		<span class='z-[-10] noise absolute top-0 w-[100%] h-[100%] md:h-[100vh] content-none'/>
 	</main>
+	<footer class="hidden md:absolute bottom-5 right-10 md:flex items-center gap-1 text-[var(--text-card)]">
+		<p>Design inspired by Shabib Hasan at</p>
+		<a class="text-[var(--text-dribble)]" target="_blank" href="https://dribbble.com/shots/22656575-NFTPro">
+			<p>Dribble</p>
+		</a>
+	</footer>
 </Layout>

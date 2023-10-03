@@ -1,0 +1,12 @@
+---
+import { Icon } from 'astro-icon'
+
+const {value, transitionName, color, size, icon} = Astro.props
+---
+
+<span class="flex items-center">
+    <Icon class={`${size} ${color}`} name={`${icon}`} />
+    <p style={`view-transition-name: ${transitionName}`}>
+        {value}
+    </p>
+</span>

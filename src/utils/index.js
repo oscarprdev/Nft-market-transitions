@@ -37,3 +37,10 @@ export const startViewTransition = () => {
 		});
 	});
 };
+
+export const colors = [
+	'linear-gradient(135deg, #00aaff, #0044cc)',
+	'linear-gradient(135deg, #ff3333, #cc0000)',
+	'linear-gradient(135deg, #555555, #333333)',
+	'linear-gradient(135deg, #00ff99, #00cc66)',
+];

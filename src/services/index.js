@@ -4,7 +4,7 @@ const arrayImages = [
 	'../../public/images/bored-ape-1.png',
 	'../../public/images/bored-ape-2.png',
 	'../../public/images/bored-ape-3.png',
-	'../../public/images/bored-ape-4.png',
+	'../../public/images/bored-ape-4.avif',
 ];
 
 const defaultNft = {
@@ -15,6 +15,7 @@ const defaultNft = {
 	user: '',
 	likes: 0,
 	date: '',
+	id: '',
 };
 
 const mapNftListWithImages = (data = [defaultNft]) => {
@@ -36,6 +37,7 @@ const mapNftList = (data = [defaultNft]) => {
 			user: item.user,
 			likes: item.likes,
 			date: item.date,
+			id: item.id,
 		};
 	});
 };
@@ -50,4 +52,17 @@ export const getNftList = async () => {
 		console.error(error);
 		return mapNftList(mapNftListWithImages());
 	}
+};
+
+export const getNftbyId = async (id) => {
+	const response = await fetch(`${API_URL}/data/${id}`);
+	const nftItem = await response.json();
+
+	const nft = {
+		...nftItem,
+		eth: nftItem.eth_price,
+		image: arrayImages[id - 1],
+	};
+
+	return nft;
 };

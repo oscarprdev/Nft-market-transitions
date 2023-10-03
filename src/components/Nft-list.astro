@@ -1,13 +1,13 @@
 ---
 import {getNftList} from '../services/index.js'
-import NftCard from './nft-card.astro';
+import NftCard from './Nft-card.astro';
 
 const nftList = await getNftList()
 ---
 
 <ul class="flex flex-col md:flex-row items-center gap-5 w-[80vw]">
     {
-        nftList.map(({image, user, eth, likes, date, views }, index) => (
+        nftList.map(({image, user, eth, likes, date, views, id, name }, index) => (
             <NftCard 
                 image={image} 
                 user={user} 
@@ -16,6 +16,8 @@ const nftList = await getNftList()
                 date={date}
                 views={views}
                 index={index}
+                id={id}
+                name={name}
             />
         ))
     }
